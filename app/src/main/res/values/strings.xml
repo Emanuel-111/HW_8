@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">QuizzoApp - EML</string>
+
+    <string name="txt_welcome_message">Welcome to the Quizzo App</string>
+    <string name="txt_add_question_message">Please add all</string>
+    <string name="txt_success">Hurray, you won :)</string>
+    <string name="txt_failure">Awwww, you failed :(</string>
+
+    <string-array name="sp_choices">
+        <item>Choice 1</item>
+        <item>Choice 2</item>
+        <item>Choice 3</item>
+        <item>Choice 4</item>
+    </string-array>
+
+
+
+
+</resources>
