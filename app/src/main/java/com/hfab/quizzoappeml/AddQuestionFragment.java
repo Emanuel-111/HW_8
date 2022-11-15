@@ -114,7 +114,7 @@ public class AddQuestionFragment extends Fragment {
                         answer = choice5;
                     }
 
-                    QuestionDatabase.addQuestion(genre, question, choices, answer, funFact);
+                    QuestionDatabase.getDatabase().addQuestion(genre, question, choices, answer, funFact);
 
                     txtGenre.setText("");
                     txtQuestion.setText("");

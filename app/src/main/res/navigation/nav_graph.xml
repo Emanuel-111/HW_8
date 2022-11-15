@@ -39,5 +39,8 @@
         <argument
             android:name="userScore"
             app:argType="float" />
+        <action
+            android:id="@+id/action_quizCompleteFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
 </navigation>

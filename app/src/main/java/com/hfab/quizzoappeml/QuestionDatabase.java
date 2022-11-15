@@ -12,7 +12,9 @@ import java.util.Set;
  */
 public class QuestionDatabase {
 
-    private static ArrayList<Question> questions = new ArrayList<Question>();
+    private static QuestionDatabase myOnlyQuestionDatabase;
+
+    private ArrayList<Question> questions;
 
     /**
      * addAllQuestions adds all the questions to an ArrayList to display
@@ -20,12 +22,30 @@ public class QuestionDatabase {
      *
      * @return questions
      */
-    public static ArrayList<Question> addAllQuestions()
-    {
-        QuestionDatabase.allInitialQuestions(questions);
 
-        return questions;
+
+    public static QuestionDatabase getDatabase()
+    {
+        if (myOnlyQuestionDatabase == null)
+        {
+            myOnlyQuestionDatabase = new QuestionDatabase();
+        }
+
+        return myOnlyQuestionDatabase;
     }
+
+    private QuestionDatabase()
+    {
+        questions = new ArrayList<Question>();
+        allInitialQuestions(questions);
+
+    }
+
+    private void loadQuestions()
+    {
+
+    }
+
 
     /**
      * addQuestion adds a question
@@ -36,18 +56,18 @@ public class QuestionDatabase {
      * @param a - answer
      * @param ff - fun fact
      */
-    public static void addQuestion(String g, String q, ArrayList<String> c, String a, String ff)
+    public void addQuestion(String g, String q, ArrayList<String> c, String a, String ff)
     {
         Question newQuestion = new Question(g,q,c,a,ff);
         questions.add(newQuestion);
     }
 
-    public static int getLength()
+    public int getLength()
     {
         return questions.size();
     }
 
-    public static void addAllQuestions(ArrayList<Question> q)
+    public void addAllQuestions(ArrayList<Question> q)
     {
         for (int i = 0; i < questions.size(); i++)
         {
@@ -60,7 +80,7 @@ public class QuestionDatabase {
      * @param questions - ArrayList
      * @return areas
      */
-    public static Set<String> getGenreNames(final List<Question> questions) {
+    public Set<String> getGenreNames(final List<Question> questions) {
         Set<String> areas = new HashSet<>();
         for(final Question question: questions)
         {
@@ -70,12 +90,12 @@ public class QuestionDatabase {
     }
 
     /**
-     * Adds all questions the developers wanted the user
+     * Adds (Loads) all questions the developers wanted the user
      * to get the correct answers to as well
      * @param q - ArrayList of questions
      * @return q
      */
-    public static ArrayList<Question> allInitialQuestions(ArrayList<Question> q)
+    public ArrayList<Question> allInitialQuestions(ArrayList<Question> q)
     {
         // Add all choices
         ArrayList<String> c = new ArrayList<String>();

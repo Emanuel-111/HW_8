@@ -64,12 +64,12 @@ public class PracticeFragment extends Fragment {
 
         }
 
-        QuestionDatabase.allInitialQuestions(allQuestionsRemaining);
+        QuestionDatabase.getDatabase().allInitialQuestions(allQuestionsRemaining);
 
         View view = inflater.inflate(R.layout.fragment_practice, container, false);
 
         // Total score of the Question Database length
-        totalScore = QuestionDatabase.getLength();
+        totalScore = QuestionDatabase.getDatabase().getLength();
         totalLengthOfScore = allQuestionsRemaining.size();
 
         // Random Number in the list

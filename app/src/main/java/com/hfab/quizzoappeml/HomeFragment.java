@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
 
         ArrayList<Question> allQuestions = new ArrayList<Question>();
 
-        QuestionDatabase.allInitialQuestions(allQuestions);
+        QuestionDatabase.getDatabase().allInitialQuestions(allQuestions);
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
